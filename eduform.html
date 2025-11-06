@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edu Connect — Registration</title>
+  <style>
+    :root{
+      --brand:#004ad0;
+      --bg:#f2f5f7;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#666;
+      --success:#198754;
+      --error:#d93025;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter, system-ui, -apple-system, Arial, sans-serif;
+      background:var(--bg);color:var(--text);transition:background .3s,color .3s;
+    }
+    body.dark{
+      --bg:#111316; --card:#181a1d; --text:#e6eef8; --muted:#9aa4b2; --brand:#3a82ff;
+    }
+    header{
+      background:var(--brand);color:#fff;padding:18px 16px;position:relative;text-align:center;
+    }
+    .theme-toggle{
+      position:absolute;right:14px;top:10px;border:0;background:transparent;color:#fff;padding:8px;cursor:pointer;font-weight:600;border-radius:8px;
+    }
+    main{display:flex;align-items:flex-start;justify-content:center;padding:30px 16px;}
+    form.card{width:100%;max-width:720px;background:var(--card);padding:22px;border-radius:12px;box-shadow:0 8px 24px rgba(10,10,10,0.06);}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}}
+    label{display:block;font-size:0.9rem;margin-bottom:6px;font-weight:600}
+    input,select,button{font-family:inherit}
+    input[type=text],input[type=email],input[type=tel],input[type=date],select{width:100%;padding:10px;border:1px solid #cfcfcf;border-radius:8px;background:transparent;color:inherit}
+    body.dark input, body.dark select{border-color:#2c2f33}
+    .row{display:flex;gap:8px}
+    .small{padding:8px 10px;font-weight:600;border-radius:8px;border:none;background:var(--brand);color:#fff;cursor:pointer}
+    .small:disabled{opacity:.6;cursor:not-allowed}
+    .helper{font-size:0.85rem;color:var(--muted);margin-top:6px}
+    .msg{font-size:0.9rem;margin-top:6px}
+    .msg.success{color:var(--success)}
+    .msg.error{color:var(--error)}
+    .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:12px}
+    footer{background:#222;color:#fff;text-align:center;padding:18px;margin-top:30px}
+    .full{grid-column:1/-1}
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="margin:0;font-size:1.25rem">Edu Connect — Student Registration</h1>
+    <button id="toggleTheme" class="theme-toggle" aria-label="Toggle dark mode">🌙 Dark</button>
+  </header>
+
+  <main>
+    <form id="regForm" class="card" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name">Full Name *</label>
+          <input id="name" name="name" type="text" placeholder="Enter full name" required />
+          <div id="nameMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="dob">Date of Birth *</label>
+          <input id="dob" name="dob" type="date" required />
+          <div id="dobMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="gender">Gender *</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          <div id="genderMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="course">Course / Branch *</label>
+          <select id="course" name="course" required>
+            <option value="">Select course</option>
+            <option>B.Tech</option>
+            <option>MCA</option>
+            <option>MBA</option>
+            <option>B.Pharma</option>
+            <option>Others</option>
+          </select>
+          <div id="courseMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="email">Email Address *</label>
+          <input id="email" name="email" type="email" placeholder="example@mail.com" required />
+          <div id="emailMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="phone">Phone Number *</label>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit mobile" required />
+          <div id="phoneMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="father">Father's Name *</label>
+          <input id="father" name="father" type="text" placeholder="Father's name" required />
+          <div id="fatherMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="mother">Mother's Name *</label>
+          <input id="mother" name="mother" type="text" placeholder="Mother's name" required />
+          <div id="motherMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="admissionCategory">Admission Category *</label>
+          <select id="admissionCategory" name="admissionCategory" required>
+            <option value="">Select admission type</option>
+            <option>Direct</option>
+            <option>Counselling</option>
+          </select>
+          <div id="admissionMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="rollNo">Counselling Roll No.</label>
+          <input id="rollNo" name="rollNo" type="text" placeholder="If applicable" />
+        </div>
+
+        <div>
+          <label for="section">Section</label>
+          <input id="section" name="section" type="text" placeholder="Section (e.g. A, B)" />
+        </div>
+
+        <div>
+          <label for="blood">Blood Group</label>
+          <input id="blood" name="blood" type="text" placeholder="e.g. A+, O-" />
+        </div>
+
+        <!-- Email OTP -->
+        <div class="full">
+          <label>Verify Email (OTP)</label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input id="otpEmailInput" type="text" placeholder="Enter email OTP" style="flex:1" inputmode="numeric" />
+            <button id="genEmailOtp" type="button" class="small">Generate</button>
+            <button id="verifyEmailOtp" type="button" class="small">Verify</button>
+          </div>
+          <div id="otpEmailMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+        <!-- Phone OTP -->
+        <div class="full">
+          <label>Verify Phone (OTP)</label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input id="otpPhoneInput" type="text" placeholder="Enter phone OTP" style="flex:1" inputmode="numeric" />
+            <button id="genPhoneOtp" type="button" class="small">Generate</button>
+            <button id="verifyPhoneOtp" type="button" class="small">Verify</button>
+          </div>
+          <div id="otpPhoneMsg" class="msg" aria-live="polite"></div>
+        </div>
+
+      </div> <!-- grid -->
+
+      <div class="actions">
+        <button id="resetBtn" type="button" style="background:#e9ecef;color:#000;padding:10px 14px;border-radius:8px;border:1px solid #ddd">Reset</button>
+        <button id="submitBtn" type="submit" style="padding:10px 14px;border-radius:8px">Register</button>
+      </div>
+
+      <p id="formMsg" class="msg" aria-live="polite" style="margin-top:12px"></p>
+    </form>
+  </main>
+
+  <footer>
+    <p style="margin:8px 0">Contacts — Mobile: 9192631770 • Email: <a href="mailto:educonnect04@gmail.com" style="color:#9fd1ff">educonnect04@gmail.com</a></p>
+    <p style="margin:0">&copy; 2025 EduConnect. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ------- Theme Toggle (persist in localStorage) -------
+    const toggle = document.getElementById('toggleTheme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('edu_theme');
+    function applyTheme(theme){
+      if(theme === 'dark') document.body.classList.add('dark');
+      else document.body.classList.remove('dark');
+      toggle.textContent = document.body.classList.contains('dark') ? '☀️ Light' : '🌙 Dark';
+    }
+    if(savedTheme) applyTheme(savedTheme);
+    else applyTheme(prefersDark ? 'dark' : 'light');
+    toggle.addEventListener('click', ()=>{
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('edu_theme', isDark ? 'dark' : 'light');
+      toggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    });
+
+    // ------- Simple OTP Simulation & Validation -------
+    const state = { emailOtp:null, phoneOtp:null, emailVerified:false, phoneVerified:false };
+
+    const genEmailBtn = document.getElementById('genEmailOtp');
+    const verifyEmailBtn = document.getElementById('verifyEmailOtp');
+    const otpEmailInput = document.getElementById('otpEmailInput');
+    const otpEmailMsg = document.getElementById('otpEmailMsg');
+
+    const genPhoneBtn = document.getElementById('genPhoneOtp');
+    const verifyPhoneBtn = document.getElementById('verifyPhoneOtp');
+    const otpPhoneInput = document.getElementById('otpPhoneInput');
+    const otpPhoneMsg = document.getElementById('otpPhoneMsg');
+
+    function randomOtp(){ return String(Math.floor(100000 + Math.random()*900000)); }
+    function showMsg(el, text, type){ el.textContent = text; el.className = 'msg ' + (type||''); }
+
+    genEmailBtn.addEventListener('click', ()=>{
+      const email = document.getElementById('email').value.trim();
+      if(!validateEmail(email)){ showMsg(document.getElementById('emailMsg'),'Enter a valid email before generating OTP','error'); return; }
+      state.emailOtp = randomOtp(); state.emailVerified = false;
+      showMsg(otpEmailMsg, `Simulated OTP sent to ${email} — ${state.emailOtp}`,'success');
+    });
+
+    verifyEmailBtn.addEventListener('click', ()=>{
+      if(!state.emailOtp){ showMsg(otpEmailMsg,'Generate an OTP first','error'); return; }
+      if(otpEmailInput.value.trim() === state.emailOtp){ state.emailVerified = true; showMsg(otpEmailMsg,'Email verified ✅','success'); }
+      else showMsg(otpEmailMsg,'Incorrect OTP','error');
+    });
+
+    genPhoneBtn.addEventListener('click', ()=>{
+      const phone = document.getElementById('phone').value.trim();
+      if(!validatePhone(phone)){ showMsg(document.getElementById('phoneMsg'),'Enter a valid 10-digit phone before generating OTP','error'); return; }
+      state.phoneOtp = randomOtp(); state.phoneVerified = false;
+      showMsg(otpPhoneMsg, `Simulated OTP sent to ${phone} — ${state.phoneOtp}`,'success');
+    });
+
+    verifyPhoneBtn.addEventListener('click', ()=>{
+      if(!state.phoneOtp){ showMsg(otpPhoneMsg,'Generate an OTP first','error'); return; }
+      if(otpPhoneInput.value.trim() === state.phoneOtp){ state.phoneVerified = true; showMsg(otpPhoneMsg,'Phone verified ✅','success'); }
+      else showMsg(otpPhoneMsg,'Incorrect OTP','error');
+    });
+
+    // ------- Validation helpers -------
+    function validateEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+    function validatePhone(p){ return /^[0-9]{10}$/.test(p); }
+
+    // ------- Form submit -------
+    const form = document.getElementById('regForm');
+    const formMsg = document.getElementById('formMsg');
+    function setFieldMsg(id,msg,type){ showMsg(document.getElementById(id),msg,type); }
+    function clearFieldMsgs(){ ['nameMsg','dobMsg','genderMsg','emailMsg','phoneMsg','fatherMsg','motherMsg','courseMsg','admissionMsg','otpEmailMsg','otpPhoneMsg','formMsg'].forEach(id=>{ const el=document.getElementById(id); if(el) { el.textContent=''; el.className='msg'; } }); }
+
+    form.addEventListener('submit',(ev)=>{
+      ev.preventDefault(); clearFieldMsgs(); let ok=true;
+      const name = document.getElementById('name').value.trim();
+      const dob = document.getElementById('dob').value;
+      const gender = document.getElementById('gender').value;
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const father = document.getElementById('father').value.trim();
+      const mother = document.getElementById('mother').value.trim();
+      const course = document.getElementById('course').value;
+      const admission = document.getElementById('admissionCategory').value;
+
+      if(!name){ setFieldMsg('nameMsg','Name is required','error'); ok=false; }
+      if(!dob){ setFieldMsg('dobMsg','Date of birth is required','error'); ok=false; }
+      if(!gender){ setFieldMsg('genderMsg','Please select gender','error'); ok=false; }
+      if(!validateEmail(email)){ setFieldMsg('emailMsg','Valid email is required','error'); ok=false; }
+      if(!validatePhone(phone)){ setFieldMsg('phoneMsg','Valid 10-digit phone is required','error'); ok=false; }
+      if(!father){ setFieldMsg('fatherMsg',"Father's name is required",'error'); ok=false; }
+      if(!mother){ setFieldMsg('motherMsg',"Mother's name is required",'error'); ok=false; }
+      if(!course){ setFieldMsg('courseMsg','Please select course','error'); ok=false; }
+      if(!admission){ setFieldMsg('admissionMsg','Please select admission category','error'); ok=false; }
+
+      if(!state.emailVerified){ setFieldMsg('otpEmailMsg','Please verify email with OTP','error'); ok=false; }
+      if(!state.phoneVerified){ setFieldMsg('otpPhoneMsg','Please verify phone with OTP','error'); ok=false; }
+
+      if(!ok){ showMsg(formMsg,'Please fix errors above and submit again','error'); return; }
+
+      // Simulate successful submission — in real app send to server
+      const payload = { name,dob,gender,email,phone,father,mother,course,admission,rollNo:document.getElementById('rollNo').value,section:document.getElementById('section').value,blood:document.getElementById('blood').value };
+      localStorage.setItem('edu_last_submission', JSON.stringify(payload));
+      showMsg(formMsg,'Registration successful ✅ (simulation). Data stored locally.','success');
+
+      // reset after a short delay
+      setTimeout(()=>{ form.reset(); state.emailOtp=state.phoneOtp=null; state.emailVerified=state.phoneVerified=false; clearFieldMsgs(); },1400);
+    });
+
+    // ------- Reset button -------
+    document.getElementById('resetBtn').addEventListener('click', ()=>{ form.reset(); state.emailOtp=state.phoneOtp=null; state.emailVerified=state.phoneVerified=false; clearFieldMsgs(); });
+  </script>
+</body>
+</html>

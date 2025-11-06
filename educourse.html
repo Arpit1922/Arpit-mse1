@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduConnect Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .top-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 20px;
+      transition: opacity 0.3s;
+    }
+
+    .top-links a:hover {
+      opacity: 0.8;
+    }
+
+    #theme-toggle {
+      background: white;
+      color: #007BFF;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #theme-toggle:hover {
+      background: #0056b3;
+      color: white;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0056b3;
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .course-card {
+      background: white;
+      border: 2px solid #e3e9f0;
+      border-radius: 12px;
+      padding: 25px 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    }
+
+    .course-card i {
+      font-size: 28px;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    .course-card h3 {
+      margin: 10px 0 6px;
+      color: #003f88;
+      font-size: 18px;
+    }
+
+    .course-card p {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .course-card a {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .course-card a:hover {
+      background-color: #0056b3;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 40px auto 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #f1f5ff;
+      color: #333;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    /* DARK THEME */
+    body.dark {
+      background-color: #121212;
+      color: #e6e6e6;
+    }
+
+    body.dark header {
+      background-color: #1f1f1f;
+    }
+
+    body.dark h2 {
+      color: #4aa3ff;
+    }
+
+    body.dark .course-card {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      box-shadow: none;
+    }
+
+    body.dark .course-card i {
+      color: #4aa3ff;
+    }
+
+    body.dark .course-card a,
+    body.dark .back-btn {
+      background-color: #4aa3ff;
+    }
+
+    body.dark .course-card a:hover,
+    body.dark .back-btn:hover {
+      background-color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EduConnect</h1>
+    <div class="top-links">
+      <button id="theme-toggle">🌙 Dark Mode</button>
+      <a href="homepage.html">Home</a>
+      <a href="eduform.html">Register</a>
+      <a href="edulogin.html">Login</a>
+    </div>
+  </header>
+
+  <main>
+    <h2>Available Courses</h2>
+    <div class="courses">
+      <div class="course-card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>MCA</h3>
+        <p>Master of Computer Applications</p>
+        <a href="mca.html">View</a>
+      </div>
+      <div class="course-card">
+        <i class="fa-solid fa-building-columns"></i>
+        <h3>MBA</h3>
+        <p>Master of Business Administration</p>
+        <a href="mba.html">View</a>
+      </div>
+      <div class="course-card">
+        <i class="fa-solid fa-microchip"></i>
+        <h3>B.Tech (CSE)</h3>
+        <p>Computer Science & Engineering</p>
+        <a href="btech_cse.html">View</a>
+      </div>
+      <div class="course-card">
+        <i class="fa-solid fa-desktop"></i>
+        <h3>B.Tech (CSE/IT)</h3>
+        <p>Computer Science & Information Technology</p>
+        <a href="btech_cseit.html">View</a>
+      </div>
+      <div class="course-card">
+        <i class="fa-solid fa-robot"></i>
+        <h3>B.Tech (AI/ML)</h3>
+        <p>Artificial Intelligence & Machine Learning</p>
+        <a href="btech_aiml.html">View</a>
+      </div>
+      <div class="course-card">
+        <i class="fa-solid fa-gears"></i>
+        <h3>M.Tech</h3>
+        <p>Master of Technology</p>
+        <a href="mtech.html">View</a>
+      </div>
+    </div>
+
+    <a href="homepage.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i>&nbsp;Back to Homepage</a>
+  </main>
+
+  <footer>© 2025 EduConnect. All rights reserved.</footer>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      if (document.body.classList.contains("dark")) {
+        toggle.textContent = "☀️ Light Mode";
+      } else {
+        toggle.textContent = "🌙 Dark Mode";
+      }
+    });
+  </script>
+</body>
+</html>
